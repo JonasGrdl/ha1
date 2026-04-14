@@ -124,5 +124,19 @@ class CalculatorTest {
         String actual = calc.readScreen();
         assertEquals(expected, actual);
     }
+    @Test
+    @DisplayName("Pressing the % key after entering a number")
+    void displayResultOnScreen(){
+        Calculator calc = new Calculator();
+
+        calc.pressDigitKey(1);
+        calc.pressDigitKey(0);
+        calc.pressDigitKey(0);
+        calc.pressUnaryOperationKey("%");
+
+        String expected = "1";
+        String actual = calc.readScreen();
+        assertEquals(expected, actual);
+    }
 }
 
