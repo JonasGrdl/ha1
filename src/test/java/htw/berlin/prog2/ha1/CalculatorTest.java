@@ -105,5 +105,24 @@ class CalculatorTest {
         String actual = calc.readScreen();
         assertEquals(expected, actual);
     }
+
+    //Teilaufgabe 2
+    @Test
+    @DisplayName("first clear press only clears current value but not value typed in before pressing an operator button")
+    void testCOrCEButton(){
+        Calculator calc = new Calculator();
+
+        calc.pressDigitKey(8);
+        calc.pressDigitKey(0);
+        calc.pressBinaryOperationKey("+");
+        calc.pressDigitKey(7);
+        calc.pressClearKey();
+        calc.pressDigitKey(4);
+        calc.pressEqualsKey();
+
+        String expected = "84";
+        String actual = calc.readScreen();
+        assertEquals(expected, actual);
+    }
 }
 
